@@ -1,15 +1,17 @@
 package com.woodpecker.czq.test;
 
+import com.woodpecker.czq.helper.DatabaseHelper;
 import com.woodpecker.czq.model.Customer;
 import com.woodpecker.czq.service.CustomerService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.*;
 
 /**
  * @Author: woodpecker
@@ -25,8 +27,9 @@ public class CustomerServiceTest {
     }
 
     @Before
-    public void init(){
-        //TODO 初始化数据库
+    public void init() throws IOException {
+        // 初始化数据库
+        DatabaseHelper.excuteSqlFile("sql/customer_init.sql");
     }
 
     @Test
